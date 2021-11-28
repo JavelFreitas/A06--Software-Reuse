@@ -4,15 +4,12 @@ import BulletPoint from "./BulletPoint";
 import './Carousel.css'
 import Content, {ContentProps} from "./Content";
 
-const Carousel = () => {
+interface CarouselProps{
+    itemList: ContentProps[]
+}
+const Carousel = (props: CarouselProps) => {
 
-    const [itemList, setItemList] = useState<ContentProps[]>(
-        [{title: 'Bulbasaur', contentURL: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'},
-         {title: 'Bulbasaur shinny', contentURL: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png'},
-         {title: 'Carro Azul', contentURL: 'https://www.angelsflypantufas.com.br/wp-content/uploads/2020/09/carro-azul.jpg'},
-         {title: 'Boneca de Costas', contentURL: 'https://cdn.awsli.com.br/1000x1000/1421/1421406/produto/59820596e0fc7251c1.jpg'},
-        ]
-    )
+    const [itemList, setItemList] = useState(props.itemList)
 
     const [renderedItem, setRenderedItem] = useState(0);
 
@@ -44,7 +41,7 @@ const Carousel = () => {
                         title={itemList[renderedItem].title} 
                         contentURL={itemList[renderedItem].contentURL} 
                         defaultWidth={'100px'}/>
-                    </div>
+                </div>
                 <Arrow arrowDirection={'right'} actionClick={nextBanner}/>
             </div>
             <div className="carousel__pagination">

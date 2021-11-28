@@ -17,7 +17,12 @@ const Arrow = (props: ArrowProps) => {
 
     return (
         <div onClick={() => props.actionClick()}>
-            <img className={arrowDirectionClass(props.arrowDirection)} src={upArrowSVG} width={'19.4px'} height={'30px'}/>
+            <img className={arrowDirectionClass(props.arrowDirection)}
+                src={upArrowSVG}
+                width={'19.4px'}
+                height={'30px'}
+                alt={`Button arrow ${props.arrowDirection}`}
+            />
         </div >
     )
 }

@@ -1,0 +1,9 @@
+.content__outterDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content__title{
+    border-bottom: 1px solid;
+}

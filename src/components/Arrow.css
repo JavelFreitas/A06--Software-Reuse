@@ -1,0 +1,18 @@
+.leftArrow{
+    transform: rotate(-90deg);
+}
+
+.rightArrow{
+    transform: rotate(90deg);
+}
+
+.leftArrow, .rightArrow{
+    filter: opacity(0.3);
+}
+
+
+.leftArrow:hover, .rightArrow:hover{
+    filter: opacity(1);
+    transition: 0.2s;
+    cursor: pointer;
+}

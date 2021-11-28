@@ -1,0 +1,7 @@
+.carousel__outterDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+}

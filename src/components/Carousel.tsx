@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Arrow from "./Arrow";
+import BulletPoint from "./BulletPoint";
 import './Carousel.css'
 import Content, {ContentProps} from "./Content";
 
@@ -35,14 +36,28 @@ const Carousel = () => {
         setRenderedItem(pageChange)
     }
     
-    return (
-        <div className="carousel__outterDiv">
-            <Arrow arrowDirection={'left'} actionClick={previousBanner}/>
-            <Content 
-                title={itemList[renderedItem].title} 
-                contentURL={itemList[renderedItem].contentURL} 
-                defaultWidth={'100px'}/>
-            <Arrow arrowDirection={'right'} actionClick={nextBanner}/>
+    return (<div className="carousel">
+            <div className="carousel__outterDiv">
+                <Arrow arrowDirection={'left'} actionClick={previousBanner}/>
+                <div>
+                    <Content 
+                        title={itemList[renderedItem].title} 
+                        contentURL={itemList[renderedItem].contentURL} 
+                        defaultWidth={'100px'}/>
+                    </div>
+                <Arrow arrowDirection={'right'} actionClick={nextBanner}/>
+            </div>
+            <div className="carousel__pagination">
+                {itemList.map((item, index) => {
+                    return (
+                        <BulletPoint
+                            key={item.title} 
+                            actionClick={() => setRenderedItem(index)}
+                            active={index === renderedItem ? true : false}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }
